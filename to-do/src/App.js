@@ -12,6 +12,10 @@ function App() {
 
   const [state, dispatch] = useReducer(initialState, todoReducer);
 
+  const handleChanges = e => {
+    setNewElement(e.target.value);
+  }
+
   const addTodo = e => {
     dispatch({type: "ADD_TODO"});
   }
@@ -42,7 +46,8 @@ function App() {
         <div>
           <ToDoForm
             newElement={newElement}
-            addFunction={addTodo} />
+            addFunction={addTodo}
+            handleChanges={handleChanges}/>
         </div>
         <div>
           <ToDoList 

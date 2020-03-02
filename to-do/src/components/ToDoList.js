@@ -5,11 +5,10 @@ const ToDoList = props => {
 
     return (
         <div>
-        <ToDo
-        item={props.item}
-        completed={props.completed}
-        false={props.false} 
-        />
+         {props.state.map(element => { 
+         return <ToDo item={element.item} completed={element.completed} false={element.false} />
+         })}   
+        
         </div>
     )
 
