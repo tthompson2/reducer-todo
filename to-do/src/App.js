@@ -8,9 +8,21 @@ import { initialState, todoReducer } from "./reducers/index";
 
 function App() {
 
-  const [ newElement, setNewElement ] = 
+  const [newElement, setNewElement] = useState("");
 
-  const  [ state, dispatch ] = useReducer(initialState, todoReducer);
+  const [state, dispatch] = useReducer(initialState, todoReducer);
+
+  const addTodo = e => {
+    dispatch({type: "ADD_TODO"});
+  }
+
+  const addClear = e => {
+    dispatch({type: "ADD_CLEAR"});
+  }
+
+  const toggleRemover = e => {
+    dispatch({type: "TOGGLE_REMOVER"});
+  }
 
   return (
     <div className="App">
@@ -27,6 +39,15 @@ function App() {
         >
           Learn React
         </a>
+        <div>
+          <ToDoForm
+            newElement={newElement}
+            addFunction={addTodo} />
+        </div>
+        <div>
+          <ToDoList 
+          state={state}/>
+        </div>
       </header>
     </div>
   );

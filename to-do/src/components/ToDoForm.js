@@ -7,7 +7,8 @@ const ToDoForm = props => {
             <input
                type="text"
                name="itemText"
-               value={props.item}
+               value={props.newElement}
+               onChange={props.addFunction}
             />
         </div>
     )
