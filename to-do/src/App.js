@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState, useReducer } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { ToDoForm } from "./components/ToDoForm";
+import { ToDoList } from "./components/ToDoList";
+
+import { initialState, todoReducer } from "./reducers/index";
 
 function App() {
+
+  const [ newElement, setNewElement ] = 
+
+  const  [ state, dispatch ] = useReducer(initialState, todoReducer);
+
   return (
     <div className="App">
       <header className="App-header">
