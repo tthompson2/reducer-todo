@@ -19,15 +19,29 @@ export function todoReducer(state, action) {
         case 'ADD_TODO':
             return {
                 ...state,
-                todos: [...state.todos, action.payload]
+                todos: [...state.todos, { item: action.payload, completed: false, id: Date.now() }]
             }
         case 'ADD_CLEAR':
-        return {...state, id: Date.now()};
+        return {
+            ...state,
+            todos: state.todos.filter(element => element.completed === false)
+        };
 
         case "TOGGLE_REMOVER":
-            return {...state, editing: true};
+            return {
+                ...state, 
+                todos: state.todos.map(element => {
+                    if(element.id === action.payload) {
+                        return {
+                            ...element, completed: !element.completed
+                        }
+                    }
+                    else {
+                        return element
+                    }
+                })
+            }
         default: 
           return state;
     }
-
 }

@@ -4,12 +4,15 @@ const ToDoForm = props => {
    
     return (
         <div>
+            <form onSubmit={props.addFunction}>
             <input
                type="text"
                name="itemText"
-               value={props.newElement}
-               onChange={props.addFunction}
+               onChange={props.handleChanges}
             />
+            <button type="submit">Submit</button>
+            </form>
+            <button onClick={props.addClear}>Clear</button>
         </div>
     )
 }

@@ -3,12 +3,14 @@ import { todoReducer } from '../reducers';
 
 
 const ToDo = props => {
+    
+    console.log(props);
 
     return (
-        <div>
+        <div onClick={e => props.toggleRemover(props.id)}>
          {props.item}
          {props.completed}
-         {props.false}
+         {props.id}
         </div>
     )
 

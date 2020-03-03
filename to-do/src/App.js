@@ -1,8 +1,8 @@
 import React, { useState, useReducer } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { ToDoForm } from "./components/ToDoForm";
-import { ToDoList } from "./components/ToDoList";
+import ToDoForm from "./components/ToDoForm";
+import ToDoList  from "./components/ToDoList";
 
 import { initialState, todoReducer } from "./reducers/index";
 
@@ -10,22 +10,26 @@ function App() {
 
   const [newElement, setNewElement] = useState("");
 
-  const [state, dispatch] = useReducer(initialState, todoReducer);
+  const [state, dispatch] = useReducer(todoReducer, initialState);
+
+  // console.log(state);
 
   const handleChanges = e => {
     setNewElement(e.target.value);
   }
 
   const addTodo = e => {
-    dispatch({type: "ADD_TODO"});
+    e.preventDefault();
+    dispatch({type: "ADD_TODO", payload: newElement});
   }
 
   const addClear = e => {
     dispatch({type: "ADD_CLEAR"});
   }
 
-  const toggleRemover = e => {
-    dispatch({type: "TOGGLE_REMOVER"});
+  const toggleRemover = id => {
+    console.log(id);
+    dispatch({type: "TOGGLE_REMOVER", payload: id });
   }
 
   return (
@@ -46,12 +50,14 @@ function App() {
         <div>
           <ToDoForm
             newElement={newElement}
+            addClear={addClear}
             addFunction={addTodo}
             handleChanges={handleChanges}/>
         </div>
         <div>
           <ToDoList 
-          state={state}/>
+          state={state}
+          toggleRemover={toggleRemover}/>
         </div>
       </header>
     </div>
