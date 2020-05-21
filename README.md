@@ -16,11 +16,11 @@ In this project, you build an app that let's you display a todo list from reduce
 
 ## Project Set Up
 
-- [ ] Create a forked copy of this project.
+- [x] Create a forked copy of this project.
 - [ ] Add your team lead as collaborator on Github.
 - [ ] Clone your OWN version of the repository in your terminal
-- [ ] CD into the project base directory `cd reducer-todo`
-- [ ] Create a new react app using CRA
+- [X] CD into the project base directory `cd reducer-todo`
+- [X] Create a new react app using CRA
 - [ ] Using the same command tool (yarn or npm) start up the app using `yarn start` or `npm start`
 - [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
 - [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
@@ -36,7 +36,7 @@ Follow these steps for completing your project.
 ## Minimum Viable Product
 
 1. Set an initial state value through a reducer and render a list of todos from that state
-1. Add a form that dispatches an "ADD_TODO" action to be able to add a todo item to your list
+1. Add a form that dispatches an "ADD_TODO" action to be able to admarhsd a todo item to your list
 1. Build a function that let's you mark todo items as completed when you click on them
 1. Biuld a function that let's you clear completed todos when you click on a "Clear Completed" button
 
